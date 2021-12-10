@@ -25,7 +25,7 @@
         let pose = 0;
         let quadro = 0;
         const POSES = [
-            {qmax: 4,pv: 8},
+            {qmax: 4,pv: 5},
             {qmax: 5,pv: 10},
             {qmax: 8,pv: 16}
         ];
@@ -59,11 +59,49 @@
             //dx,dy,dw,dh
             0,0,100,100       
             );
-
+            ctx.fillStyle = "black";
+            ctx.fillText("Mantenha Pressionado",100,10);
+            ctx.fillText("Z para Socar, X para Choque Elétrico",100,20);
 
             requestAnimationFrame(passo);
             t0 = t;
         }
+
+        addEventListener("keydown", teclaPressionada);
+        addEventListener("keyup", teclaSolta);
+
+        function teclaPressionada(event){
+            switch(event.key){
+                case "z":
+                    pose = 1;
+                    break;
+                    
+                case "x":
+                    pose = 2;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function teclaSolta(event){
+            switch(event.key){
+                case "z":
+                    pose = 0;
+                    break;
+                    
+                case "x":
+                    pose = 0;
+                    break;
+
+            }
+        }
+
+
+
+
+
+
 
     </script>
 </body>
