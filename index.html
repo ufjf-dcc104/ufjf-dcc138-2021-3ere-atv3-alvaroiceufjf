@@ -12,53 +12,34 @@
     <script>
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
-        const skelly = new Image();
-        skelly.src = "assets/skelly.png";
+        const blanka = new Image();
+        blanka.src = "assets/blanka.png";
 
-        skelly.addEventListener("load", terminouDeCarregar);
+        //blanka.addEventListener("load", terminouDeCarregar);
 
         function desenhaFundo() {
             ctx.fillStyle = "green"
             ctx.fillRect(0,0,canvas.width,canvas.height);
         }
-        
-        let c = 1;
-        let l = 2;
 
         let pose = 0;
         let quadro = 0;
         const POSES = [
-            {qmax: 7,pv: 9},
-            {qmax: 7,pv: 9},
-            {qmax: 7,pv: 9},
-            {qmax: 7,pv: 9},
-            {qmax: 8,pv: 9},
-            {qmax: 8,pv: 9},
-            {qmax: 8,pv: 9},
-            {qmax: 8,pv: 9},
-            {qmax: 9,pv: 9},
-            {qmax: 9,pv: 9},
-            {qmax: 9,pv: 9},
-            {qmax: 9,pv: 9},
-            {qmax: 6,pv: 9},
-            {qmax: 6,pv: 9},
-            {qmax: 6,pv: 9},
-            {qmax: 6,pv: 9},
-            {qmax: 13,pv: 27},
-            {qmax: 13,pv: 27},
-            {qmax: 13,pv: 27},
-            {qmax: 13,pv: 27},
-            {qmax: 6,pv: 9}
+            {qmax: 4,pv: 8},
+            {qmax: 5,pv: 10},
+            {qmax: 8,pv: 16}
         ];
-
+        
+        /*
         function terminouDeCarregar(){
-            ctx.drawImage(skelly,
+            ctx.drawImage(blanka,
             //sx,sy,sw,sh
             c*64,l*64,64,64,
             //dx,dy,dw,dh
             0,0,64,64       
             );
         }
+        */
 
         let t0;
         let dt;
@@ -72,11 +53,11 @@
             quadro=(quadro>=POSES[pose].qmax-1)? 0 : quadro + POSES[pose].pv*dt;
 
 
-            ctx.drawImage(skelly,
+            ctx.drawImage(blanka,
             //sx,sy,sw,sh
-            Math.floor(quadro)*64,pose*64,64,64,
+            Math.floor(quadro)*100,pose*100,100,100,
             //dx,dy,dw,dh
-            0,0,64,64       
+            0,0,100,100       
             );
 
 
